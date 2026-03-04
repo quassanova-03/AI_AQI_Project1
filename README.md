@@ -1,4 +1,4 @@
-# AQI PREDICTION PIPELINE
+# AQI Computation Pipeline (CPCB-Based)
 
 ## OVERVIEW
 This project implements a data processing pipeline for Air Quality Index (AQI) analysis and prediction. It reads raw air quality data, performs preprocessing and cleaning, and generates structured outputs for downstream analysis or modeling.
@@ -12,7 +12,7 @@ We implemented the official CPCB AQI breakpoint interpolation formula.
 
 For each pollutant:  
 
-AQI = ((I_high - I_low)(C - C_low))/((C_high - C_low)) + I_low   (sub_index calculation)
+AQI = ((I_high - I_low)*(C - C_low))/((C_high - C_low)) + I_low   (sub_index calculation)
 
 C = pollutant concentration
 (C_low, C_high) = breakpoint concentration range
@@ -66,15 +66,24 @@ Pipeline flow:
 - Computes AQI row-by-row
 - Saves final results
 
-## SETUP
-pip install -r requirements.txt
-
 ## HOW TO RUN THE PROJECT: 
+
+pip install -r requirements.txt
+virtual environment is recommended
 
 1. clone repository
 2. install requirements (python3, pandas, numpy)
 3. run pipeline [python run_pipeline.py]
 
+## OUTPUT:
+
+(in outputs/predictions.csv)
+
+New columns added:
+
+- aqi_computed -> AQI calculated using CPCB formula
+- aqi_bucket_computed	-> AQI category
+- dominant_pollutant	-> Pollutant driving AQI
 
 ## TECHNOLOGIES
 1. Python3
