@@ -30,6 +30,7 @@ AQI-Project/
 │
 ├── outputs/
 │   └── predictions.csv     # Final computed results
+|   └── AQI_analysis.html   # Analysis of results
 │
 ├── src/
 │   ├── preprocess.py       # Data cleaning & normalization
